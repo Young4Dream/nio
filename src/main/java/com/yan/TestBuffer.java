@@ -3,7 +3,12 @@ package com.yan;
 import java.nio.ByteBuffer;
 
 public class TestBuffer {
+    /**
+     * allocate():非直接缓冲区，将数据存储在JVM中
+     * allocateDirect():直接缓冲区，在物理内存中开辟空间
+     */
     private static final ByteBuffer BUFFER = ByteBuffer.allocate(10);
+
     public static void main(String[] args) {
         String str = "abcde";
         print("allocate");
@@ -34,10 +39,10 @@ public class TestBuffer {
         print("reset");
     }
 
-    private static void print( String op) {
+    private static void print(String op) {
         System.out.println("-----------" + op + "()-----------");
-        System.out.println("position:"+BUFFER.position());
-        System.out.println("limit:"+BUFFER.limit());
-        System.out.println("capacity:"+BUFFER.capacity());
+        System.out.println("position:" + BUFFER.position());
+        System.out.println("limit:" + BUFFER.limit());
+        System.out.println("capacity:" + BUFFER.capacity());
     }
 }
